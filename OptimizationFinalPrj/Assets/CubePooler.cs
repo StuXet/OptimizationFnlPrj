@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Profiling;
 
 public class CubePooler : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class CubePooler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            Profiler.BeginSample("CubePooler");
             for (int i = 0; i < NumberOfCubes; i++)
             {
                 if (cubePool.Count > 0)
@@ -34,10 +36,12 @@ public class CubePooler : MonoBehaviour
                     activeCubes.Add(cube);
                 }
             }
+            Profiler.EndSample();
         }
 
         if (Input.GetKeyDown(KeyCode.E))
         {
+            Profiler.BeginSample("ClearCubePooler");
             foreach (GameObject cube in activeCubes)
             {
                 cube.SetActive(false);
@@ -45,6 +49,7 @@ public class CubePooler : MonoBehaviour
             }
 
             activeCubes.Clear();
+            Profiler.EndSample();
         }
     }
 }

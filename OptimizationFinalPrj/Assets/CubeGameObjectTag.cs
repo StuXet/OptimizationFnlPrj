@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Profiling;
 
 public class CubeGameObjectTag : MonoBehaviour
 {
@@ -26,12 +27,14 @@ public class CubeGameObjectTag : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            Profiler.BeginSample("tag==");
             foreach (var cube in cubes)
             {
                 if (cube.tag == "Cube")
                 {
                 }
             }
+            Profiler.EndSample();
         }
     }
 }

@@ -8126,7 +8126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3797228c3d382ed4c8ceae255547243c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fpsText: {fileID: 0}
+  fpsText: {fileID: 255069332}
 --- !u!1 &844629352
 GameObject:
   m_ObjectHideFlags: 0

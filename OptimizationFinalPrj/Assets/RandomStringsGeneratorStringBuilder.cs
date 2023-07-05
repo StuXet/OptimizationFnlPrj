@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
+using UnityEngine.Profiling;
 
 public class RandomStringsGeneratorStringBuilder : MonoBehaviour
 {
@@ -20,8 +21,16 @@ public class RandomStringsGeneratorStringBuilder : MonoBehaviour
 
             generatedStrings.Add(randomString);
         }
+    }
 
-        ConcatenatePairs();
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Profiler.BeginSample("StringBuilder");
+            ConcatenatePairs();
+            Profiler.EndSample();
+        }
     }
 
     private void ConcatenatePairs()

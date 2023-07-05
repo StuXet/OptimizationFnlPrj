@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Profiling;
 
 public class CubeSpawnerNull : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class CubeSpawnerNull : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            Profiler.BeginSample("Object.ReferenceEquals");
             cubes = new GameObject[30000];
 
             for (int i = 0; i < cubes.Length; i++)
@@ -33,6 +35,7 @@ public class CubeSpawnerNull : MonoBehaviour
                     Debug.Log("Cube at index " + i + " is not null.");
                 }
             }
+            Profiler.EndSample();
         }
     }
 }

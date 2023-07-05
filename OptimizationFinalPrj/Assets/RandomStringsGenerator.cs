@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Profiling;
 
 public class RandomStringsGenerator : MonoBehaviour
 {
@@ -18,8 +19,16 @@ public class RandomStringsGenerator : MonoBehaviour
 
             generatedStrings.Add(randomString);
         }
+    }
 
-        ConcatenatePairs();
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Profiler.BeginSample("StringConcatenatePairs");
+            ConcatenatePairs();
+            Profiler.EndSample();
+        }
     }
 
     private void ConcatenatePairs()
